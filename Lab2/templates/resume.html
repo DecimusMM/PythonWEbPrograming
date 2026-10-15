@@ -1,0 +1,69 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<section id="about" class="resume-section">
+    <div class="row align-items-center g-4">
+        <div class="col-md-4 text-center">
+            <img src="{{ url_for('static', filename='images/photo.png') }}" alt="Моє фото"
+                 class="img-fluid rounded-circle shadow profile-photo">
+        </div>
+        <div class="col-md-8">
+            <h2>Про себе</h2>
+            <p>Я студент, який вивчає веброзробку на Python. Цікавлюся створенням
+               зручних і доступних вебзастосунків, люблю вчитися новому та працювати в команді.</p>
+            <p class="mb-0"><strong>Мета:</strong> отримати практичний досвід як junior backend-розробник.</p>
+        </div>
+    </div>
+</section>
+
+<section id="education" class="resume-section">
+    <h2>Освіта</h2>
+    <ul class="list-unstyled">
+        <li class="mb-3">
+            <h3 class="h5 mb-0">Бакалавр, ІПЗ</h3>
+            <span class="text-muted">КНУ ім. В. С. · 2024 — 2028</span>
+        </li>
+        <li>
+            <h3 class="h5 mb-0">Курс «Веброзробка Python »</h3>
+            <span class="text-muted">Онлайн-платформа · 2026</span>
+        </li>
+    </ul>
+</section>
+
+<section id="skills" class="resume-section">
+    <h2>Навички</h2>
+    <div class="row g-2">
+        <div class="col-6 col-md-3"><span class="badge skill-badge w-100 py-2">Командна робота</span></div>
+        <div class="col-6 col-md-3"><span class="badge skill-badge w-100 py-2">Аналітичне мислення</span></div>
+        <div class="col-6 col-md-3"><span class="badge skill-badge w-100 py-2">Тайм-менеджмент</span></div>
+        <div class="col-6 col-md-3"><span class="badge skill-badge w-100 py-2">Англійська B1</span></div>
+    </div>
+</section>
+
+<section id="tech" class="resume-section">
+    <h2>Технології</h2>
+    <ul class="row list-unstyled g-2 mb-0">
+        {% for t in ['Python', 'Flask', 'Jinja2', 'HTML5', 'CSS3', 'Bootstrap 5', 'Git / GitHub', 'SQL'] %}
+        <li class="col-6 col-md-3"><span class="badge tech-badge w-100 py-2">{{ t }}</span></li>
+        {% endfor %}
+    </ul>
+</section>
+
+<section id="experience" class="resume-section">
+    <h2>Досвід роботи / Проєкти</h2>
+    <article class="card mb-3">
+        <div class="card-body">
+            <h3 class="h5 card-title">Flask-сайт «Резюме»</h3>
+            <p class="card-text">Двосторінковий сайт із наслідуванням шаблонів Jinja2, навігацією та формою зворотного зв'язку.</p>
+            <small class="text-muted">2026 · Python, Flask, Bootstrap</small>
+        </div>
+    </article>
+    <article class="card">
+        <div class="card-body">
+            <h3 class="h5 card-title">Консольний менеджер завдань</h3>
+            <p class="card-text">Застосунок для керування списком справ із збереженням даних у файлі.</p>
+            <small class="text-muted">2025 · Python</small>
+        </div>
+    </article>
+</section>
+{% endblock %}
