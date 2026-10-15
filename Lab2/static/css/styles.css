@@ -1,0 +1,50 @@
+:root {
+    --brand: #2b5d9b;
+    --brand-dark: #1d4373;
+    --accent: #f2a541;
+    --bg: #f5f7fa;
+}
+
+body {
+    font-family: "Segoe UI", Roboto, Arial, sans-serif;
+    background-color: var(--bg);
+    color: #25303b;
+}
+
+.bg-primary-custom { background-color: var(--brand); }
+
+.page-header {
+    background: linear-gradient(135deg, var(--brand), var(--brand-dark));
+    color: #fff;
+}
+
+html { scroll-behavior: smooth; }
+section[id] { scroll-margin-top: 80px; }
+
+.resume-section {
+    background: #fff;
+    border-radius: .75rem;
+    padding: 1.5rem;
+    margin-bottom: 1.5rem;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, .06);
+}
+
+.resume-section h2 {
+    color: var(--brand);
+    border-bottom: 3px solid var(--accent);
+    display: inline-block;
+    padding-bottom: .25rem;
+    margin-bottom: 1rem;
+}
+
+.profile-photo { max-width: 220px; border: 5px solid var(--accent); }
+
+.skill-badge { background-color: var(--accent); color: #3a2a05; font-weight: 500; }
+.tech-badge  { background-color: var(--brand); color: #fff; font-weight: 500; }
+
+.btn-primary-custom { background-color: var(--brand); color: #fff; }
+.btn-primary-custom:hover { background-color: var(--brand-dark); color: #fff; }
+
+a { color: var(--brand); }
+
+.site-footer { background-color: var(--brand-dark); color: #dbe6f4; }
