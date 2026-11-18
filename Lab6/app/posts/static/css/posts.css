@@ -1,0 +1,12 @@
+.myclass {
+    background-color: #bbff00;
+    padding: 8px 16px;
+    border-radius: 4px;
+}
+.post-card {
+    transition: transform 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+.post-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
