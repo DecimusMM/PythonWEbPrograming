@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+
+{% block title %}Резюме{% endblock %}
+
+{% block content %}
+<section id="about" class="resume-section mb-4">
+    <div class="row align-items-center g-4">
+        <div class="col-md-4 text-center">
+            <img src="{{ url_for('static', filename='images/photo.png') }}" alt="Моє фото"
+                 class="img-fluid rounded-circle shadow profile-photo" style="max-width: 180px;">
+        </div>
+        <div class="col-md-8">
+            <h2>Про себе</h2>
+            <p>Я студент, який вивчає веброзробку на Python. Цікавлюся створенням
+               зручних і доступних вебзастосунків, люблю вчитися новому та працювати в команді.</p>
+            <p class="mb-0"><strong>Мета:</strong> отримати практичний досвід як junior backend-розробник.</p>
+        </div>
+    </div>
+</section>
+
+<section id="education" class="resume-section mb-4">
+    <h2>Освіта</h2>
+    <ul class="list-unstyled">
+        <li class="mb-3">
+            <h3 class="h5 mb-0">Бакалавр, ІПЗ</h3>
+            <span class="text-muted">КНУ ім. В. С. · 2024 — 2028</span>
+        </li>
+        <li>
+            <h3 class="h5 mb-0">Курс «Веброзробка Python»</h3>
+            <span class="text-muted">Онлайн-платформа · 2026</span>
+        </li>
+    </ul>
+</section>
+
+<section id="tech" class="resume-section mb-4">
+    <h2>Технології</h2>
+    <ul class="row list-unstyled g-2 mb-0">
+        {% for t in ['Python', 'Flask', 'Jinja2', 'HTML5', 'CSS3', 'Bootstrap 5', 'Git / GitHub', 'SQL'] %}
+        <li class="col-6 col-md-3"><span class="badge bg-secondary w-100 py-2">{{ t }}</span></li>
+        {% endfor %}
+    </ul>
+</section>
+{% endblock %}
