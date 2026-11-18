@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{% block title %}Flask Application{% endblock %}</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    {% block css %}{% endblock %}
+</head>
+<body>
+    <header class="site-header">
+        <h1>Flask Application</h1>
+    </header>
+
+    <nav class="top-nav">
+        <a href="{{ url_for('main') }}">Головна</a>
+        <a href="{{ url_for('home') }}">Homepage</a>
+        <a href="{{ url_for('resume') }}">Резюме</a>
+        <a href="{{ url_for('contacts') }}">Контакти</a>
+        <a href="{{ url_for('users.greetings', name='John', age=30) }}">Users</a>
+        <a href="{{ url_for('products.product_list') }}">Products</a>
+        <a href="{{ url_for('users.profile') }}">Профіль</a>
+        {% if session.get('username') %}
+            <a href="{{ url_for('users.logout') }}">Вийти ({{ session.get('username') }})</a>
+        {% else %}
+            <a href="{{ url_for('users.login') }}">Вхід</a>
+        {% endif %}
+    </nav>
+
+    <main class="container">
+        {% with messages = get_flashed_messages(with_categories=true) %}
+            {% if messages %}
+                <div class="flash-messages my-3">
+                    {% for category, message in messages %}
+                        <div class="alert alert-{{ category }} alert-dismissible fade show" role="alert">
+                            {{ message }}
+                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                        </div>
+                    {% endfor %}
+                </div>
+            {% endif %}
+        {% endwith %}
+
+        {% block content %}{% endblock %}
+    </main>
+
+    <footer class="site-footer">
+        {% block footer %}<p>Lab 4 &mdash; Request, Sessions &amp; Cookies</p>{% endblock %}
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
+</html>
